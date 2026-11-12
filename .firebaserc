@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "min-max-inventory-e3bc4"
-  }
+  },
+  "targets": {
+    "min-max-inventory-e3bc4": {
+      "hosting": {
+        "personal": [
+          "bostonwyatt-minmax"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

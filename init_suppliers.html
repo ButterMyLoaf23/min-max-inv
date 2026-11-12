@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Initialize suppliers</title></head>
+<body>
+<button id="submit" type="button">Add five suppliers</button>
+<div id="output"></div>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyC7M4HiCJhPVR2BZ0_W91JJ_5O3U2tDb1g",
+  authDomain: "min-max-inventory-e3bc4.firebaseapp.com",
+  projectId: "min-max-inventory-e3bc4",
+  storageBucket: "min-max-inventory-e3bc4.firebasestorage.app",
+  messagingSenderId: "937236526396",
+  appId: "1:937236526396:web:44a48896f15952b2bbda39"
+};
+const db = getFirestore(initializeApp(firebaseConfig));
+const suppliers = [
+  { supplier_name: "Acme Rocket Supplies", email_address: "orders@acmerocket.example", phone_number: "555-0101" },
+  { supplier_name: "Roadrunner Rapid Goods", email_address: "speedy@roadrunner.example", phone_number: "555-0102" },
+  { supplier_name: "Toon Town Traders", email_address: "hello@toontown.example", phone_number: "555-0103" },
+  { supplier_name: "Wile E. Wholesale", email_address: "coyote@wilewholesale.example", phone_number: "555-0104" },
+  { supplier_name: "Rabbit Hole Retailers", email_address: "carrots@rabbithole.example", phone_number: "555-0105" }
+];
+document.querySelector("#submit").addEventListener("click", async (event) => {
+  event.currentTarget.disabled = true;
+  const output = document.querySelector("#output");
+  try {
+    for (const supplier of suppliers) {
+      const ref = await addDoc(collection(db, "suppliers"), supplier);
+      output.insertAdjacentHTML("beforeend", `<p>${ref.id}: ${supplier.supplier_name}</p>`);
+    }
+  } catch (error) { output.textContent = error.message; event.currentTarget.disabled = false; }
+});
+</script></body></html>

@@ -93,9 +93,13 @@ const mminv = {
 	/** Returns a connection to the Firestore database. */
 	connect : function(event) {
 		if (! this.firestore) {
-			/* Replace the following firebaseConfig and its curly braces
-			 * with the firebaseConfig from your firebase project. */
 			const firebaseConfig = {
+				apiKey: "AIzaSyC7M4HiCJhPVR2BZ0_W91JJ_5O3U2tDb1g",
+				authDomain: "min-max-inventory-e3bc4.firebaseapp.com",
+				projectId: "min-max-inventory-e3bc4",
+				storageBucket: "min-max-inventory-e3bc4.firebasestorage.app",
+				messagingSenderId: "937236526396",
+				appId: "1:937236526396:web:44a48896f15952b2bbda39"
 			};
 
 			// DO NOT EDIT BELOW THIS LINE.

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Initialize products</title></head>
+<body>
+<button id="submit" type="button">Add twenty products</button>
+<div id="output"></div>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
+import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyC7M4HiCJhPVR2BZ0_W91JJ_5O3U2tDb1g",
+  authDomain: "min-max-inventory-e3bc4.firebaseapp.com",
+  projectId: "min-max-inventory-e3bc4",
+  storageBucket: "min-max-inventory-e3bc4.firebasestorage.app",
+  messagingSenderId: "937236526396",
+  appId: "1:937236526396:web:44a48896f15952b2bbda39"
+};
+const db = getFirestore(initializeApp(firebaseConfig));
+const names = ["Rose Quartz Serum", "Moonbeam Moisturizer", "Rocket Red Lipstick", "Coyote Clay Mask", "Toon Town Toner", "Velvet Vanishing Cream", "Speedy Shine Gloss", "Rabbit Hole Rouge", "Acme Aloe Gel", "Desert Dew Drops", "Starlight Setting Spray", "Carrot Cake Cleanser", "Supernova Sunscreen", "Wile E. Eye Cream", "Roadrunner Rosewater", "Cartoon Collagen", "Meteorite Mud Scrub", "Lucky Rabbit Lotion", "Cosmic Cuticle Oil", "Daffy Daylight Balm"];
+document.querySelector("#submit").addEventListener("click", async (event) => {
+  event.currentTarget.disabled = true;
+  const output = document.querySelector("#output");
+  try {
+    const supplierSnapshot = await getDocs(collection(db, "suppliers"));
+    const supplierIds = supplierSnapshot.docs.map((doc) => doc.id);
+    if (supplierIds.length < 5) throw new Error("Add the five suppliers before adding products.");
+    for (let i = 0; i < names.length; i++) {
+      const product = { product_name: names[i], minimum_quantity: 5 + (i % 4) * 5, quantity: 20 + (i % 5) * 5, maximum_quantity: 60 + (i % 4) * 10, supplier_id: supplierIds[i % supplierIds.length] };
+      const ref = await addDoc(collection(db, "products"), product);
+      output.insertAdjacentHTML("beforeend", `<p>${ref.id}: ${product.product_name}</p>`);
+    }
+  } catch (error) { output.textContent = error.message; event.currentTarget.disabled = false; }
+});
+</script></body></html>

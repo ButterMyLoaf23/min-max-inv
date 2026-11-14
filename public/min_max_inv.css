@@ -1,15 +1,18 @@
 :root {
-	--bkgrnd-color: white;
+	--bkgrnd-color: #eef4f8;
+	--surface-color: #ffffff;
+	--text-color: #18324b;
 	--byui-blue: rgb(0, 118, 182);
 }
 
 body {
 	background-color: var(--bkgrnd-color);
-	font-family: "Open Sans", Arial, Helvetica, Verdana, sans-serif;
+	color: var(--text-color);
+	font-family: "Crimson Pro", Georgia, serif;
 }
 
 header {
-	background-color: var(--bkgrnd-color);
+	background-color: var(--surface-color);
 	display: grid;
 	grid-template-columns: 3em fit-content(36em);
 	gap: 0.8em 1.2em;
@@ -61,7 +64,7 @@ main > section.selected {
 section table > thead {
 	position: sticky;
 	top: 0em;
-	background-color: var(--bkgrnd-color);
+	background-color: var(--surface-color);
 }
 section table > thead > tr > th {
 	vertical-align: bottom;

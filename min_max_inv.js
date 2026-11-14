@@ -2,6 +2,8 @@
 // needed by this Min-Max Inventory System.
 import {initializeApp} from
 	'https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js';
+import {getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup}
+	from 'https://www.gstatic.com/firebasejs/12.8.0/firebase-auth.js';
 import {getFirestore, collection as fireCollect, onSnapshot,
 		doc as fireDoc, addDoc, updateDoc, serverTimestamp}
 	from 'https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js';
@@ -90,9 +92,9 @@ const mminv = {
 	/** A reference to this app's connection to the Firestore database. */
 	firestore : null,
 
-	/** Returns a connection to the Firestore database. */
-	connect : function(event) {
-		if (! this.firestore) {
+	authenticate : function(event) {
+		const self = this;
+		if (! self.firestore) {
 			const firebaseConfig = {
 				apiKey: "AIzaSyC7M4HiCJhPVR2BZ0_W91JJ_5O3U2tDb1g",
 				authDomain: "min-max-inventory-e3bc4.firebaseapp.com",
@@ -104,17 +106,49 @@ const mminv = {
 
 			// DO NOT EDIT BELOW THIS LINE.
 			const app = initializeApp(firebaseConfig);
-			this.firestore = getFirestore(app);
 
-			// Initizlize the HTML user interface.
-			this.initialize();
+			// Use the Google authentication service.
+			const auth = getAuth(app);
+			onAuthStateChanged(auth, (user) => {
+				if (user) {
+					// The user is signed in so connect to the database.
+					self.firestore = getFirestore(app);
+
+					// Initizlize the HTML user interface.
+					self.initialize(user);
+				}
+				else {
+					// The user is not signed in so use the Google
+					// authentication service to sign in the user.
+					const provider = new GoogleAuthProvider();
+					signInWithPopup(auth, provider)
+					.then((result) => {
+						const user = result.user;
+						console.log(`${user.displayName} successfully signed in`);
+						// Because sign in was successful, the browser should
+						// call the anonymous auth state changed function
+						// again, but this time the user parameter will have
+						// a value which will cause the browser to execute
+						// the code above to connect to the database and
+						// initialize the HTML user interface.
+					})
+					.catch((error) => {
+						console.error(error.code);
+						console.error(error.message)
+					});
+				}
+			});
 		}
 	},
 
 
 	/** Shows the first tab and corresponding section
 	 * by programmatically clicking a tab. */
-	initialize : function() {
+	initialize : function(user) {
+		// Display the user's information.
+		document.getElementById('user').innerText =
+			`${user.displayName} (${user.email} ${user.uid})`;
+
 		suppliers.initialize();
 		products.initialize();
 		receiving.initialize();
@@ -1043,5 +1077,5 @@ const outgoing = {
 
 
 // Add an event listener to the HTML document that will
-// call mminv.connect() when the HTML document is loaded.
-document.addEventListener('DOMContentLoaded', (event) => mminv.connect(event));
+// call mminv.authenticate() when the HTML document is loaded.
+document.addEventListener('DOMContentLoaded', (event) => mminv.authenticate(event));

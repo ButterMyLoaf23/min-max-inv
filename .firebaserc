@@ -7,6 +7,9 @@
       "hosting": {
         "personal": [
           "bostonwyatt-minmax"
+        ],
+        "default": [
+          "min-max-inventory-e3bc4"
         ]
       }
     }

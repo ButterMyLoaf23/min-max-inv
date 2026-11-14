@@ -2,14 +2,26 @@
   "firestore": {
     "rules": "firestore.rules"
   },
-  "hosting": [{
-  "target": "personal",
-  "public": "public",
-  "ignore": [
-    "firebase.json",
-    "**/.*",
-    "**/node_modules/**"
-  ],
-  "cleanUrls": true
-}]
+  "hosting": [
+    {
+      "target": "default",
+      "public": "public",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "cleanUrls": true
+    },
+    {
+      "target": "personal",
+      "public": "public",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "cleanUrls": true
+    }
+  ]
 }

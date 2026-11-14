@@ -134,7 +134,12 @@ const mminv = {
 					})
 					.catch((error) => {
 						console.error(error.code);
-						console.error(error.message)
+						console.error(error.message);
+						const userElement = document.getElementById('user');
+						if (userElement) {
+							userElement.innerText =
+								`Sign-in failed (${error.code}). Allow the Google popup and reload.`;
+						}
 					});
 				}
 			});

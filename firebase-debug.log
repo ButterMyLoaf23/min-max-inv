@@ -1,0 +1,94 @@
+[debug] [2026-11-14T07:45:33.988Z] ----------------------------------------------------------------------
+[debug] [2026-11-14T07:45:33.993Z] Command:       C:\nvm4w\nodejs\node.exe C:\Users\bosto\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only hosting --project min-max-inventory-e3bc4
+[debug] [2026-11-14T07:45:33.993Z] CLI Version:   15.33.0
+[debug] [2026-11-14T07:45:33.994Z] Platform:      win32
+[debug] [2026-11-14T07:45:33.994Z] Node Version:  v22.15.0
+[debug] [2026-11-14T07:45:33.995Z] Detected Agent: codex_cli
+[debug] [2026-11-14T07:45:33.995Z] Time:          Sat Nov 14 2026 00:45:33 GMT-0700 (Mountain Standard Time)
+[debug] [2026-11-14T07:45:33.995Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-11-14T07:45:41.497Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-11-14T07:45:41.501Z] > authorizing via signed-in user (bostonwyatt1@gmail.com)
+[debug] [2026-11-14T07:45:41.502Z] [iam] checking project min-max-inventory-e3bc4 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-11-14T07:45:41.555Z] Checked if tokens are valid: true, expires at: 1794645136174
+[debug] [2026-11-14T07:45:41.557Z] Checked if tokens are valid: true, expires at: 1794645136174
+[debug] [2026-11-14T07:45:41.565Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/min-max-inventory-e3bc4:testIamPermissions [none]
+[debug] [2026-11-14T07:45:41.567Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/min-max-inventory-e3bc4:testIamPermissions  x-goog-user-project=min-max-inventory-e3bc4
+[debug] [2026-11-14T07:45:41.568Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/min-max-inventory-e3bc4:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-11-14T07:45:42.242Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/min-max-inventory-e3bc4:testIamPermissions 200
+[debug] [2026-11-14T07:45:42.243Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/min-max-inventory-e3bc4:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-11-14T07:45:42.248Z] Checked if tokens are valid: true, expires at: 1794645136174
+[debug] [2026-11-14T07:45:42.249Z] Checked if tokens are valid: true, expires at: 1794645136174
+[debug] [2026-11-14T07:45:42.251Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/min-max-inventory-e3bc4 [none]
+[debug] [2026-11-14T07:45:42.542Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/min-max-inventory-e3bc4 200
+[debug] [2026-11-14T07:45:42.543Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/min-max-inventory-e3bc4 {"projectId":"min-max-inventory-e3bc4","projectNumber":"937236526396","displayName":"boston-wyatt-min-max-inventory","name":"projects/min-max-inventory-e3bc4","resources":{"hostingSite":"min-max-inventory-e3bc4"},"state":"ACTIVE","labels":{"firebase":"enabled"},"etag":"1_f6d81668-90a3-468e-9095-f33ae1e8421d"}
+[info] 
+[info] === Deploying to 'min-max-inventory-e3bc4'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2026-11-14T07:45:42.564Z] Checked if tokens are valid: true, expires at: 1794645136174
+[debug] [2026-11-14T07:45:42.565Z] Checked if tokens are valid: true, expires at: 1794645136174
+[debug] [2026-11-14T07:45:42.567Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/min-max-inventory-e3bc4/sites/bostonwyatt-minmax [none]
+[debug] [2026-11-14T07:45:43.121Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/min-max-inventory-e3bc4/sites/bostonwyatt-minmax 200
+[debug] [2026-11-14T07:45:43.123Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/min-max-inventory-e3bc4/sites/bostonwyatt-minmax {"name":"projects/min-max-inventory-e3bc4/sites/bostonwyatt-minmax","defaultUrl":"https://bostonwyatt-minmax.web.app","type":"USER_SITE"}
+[debug] [2026-11-14T07:45:43.130Z] Checked if tokens are valid: true, expires at: 1794645136174
+[debug] [2026-11-14T07:45:43.131Z] Checked if tokens are valid: true, expires at: 1794645136174
+[debug] [2026-11-14T07:45:43.133Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/min-max-inventory-e3bc4/sites/bostonwyatt-minmax/versions [none]
+[debug] [2026-11-14T07:45:43.134Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/min-max-inventory-e3bc4/sites/bostonwyatt-minmax/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2026-11-14T07:45:43.640Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/min-max-inventory-e3bc4/sites/bostonwyatt-minmax/versions 200
+[debug] [2026-11-14T07:45:43.642Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/min-max-inventory-e3bc4/sites/bostonwyatt-minmax/versions {"name":"projects/min-max-inventory-e3bc4/sites/bostonwyatt-minmax/versions/5a317cc8c8edcbdd","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[bostonwyatt-minmax]: beginning deploy... 
+[info] i  hosting[bostonwyatt-minmax]: found 5 files in public 
+[debug] [2026-11-14T07:45:43.789Z] [hosting] uploading with 200 concurrency
+[debug] [2026-11-14T07:45:43.864Z] Checked if tokens are valid: true, expires at: 1794645136174
+[debug] [2026-11-14T07:45:43.870Z] Checked if tokens are valid: true, expires at: 1794645136174
+[debug] [2026-11-14T07:45:44.219Z] [hosting] hash cache [cHVibGlj] stored for 5 files
+[debug] [2026-11-14T07:45:45.170Z] [hosting][hash queue][FINAL] {"max":58,"min":3,"avg":14,"active":0,"complete":5,"success":5,"errored":0,"retried":0,"total":5,"elapsed":1369}
+[debug] [2026-11-14T07:45:45.183Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/min-max-inventory-e3bc4/sites/bostonwyatt-minmax/versions/5a317cc8c8edcbdd:populateFiles [none]
+[debug] [2026-11-14T07:45:45.188Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/min-max-inventory-e3bc4/sites/bostonwyatt-minmax/versions/5a317cc8c8edcbdd:populateFiles {"files":{"/min_max_inv.css":"3e46cdb13cbe6f6c382795f550896f9e9cc8747483e6471621536489fe823cf5","/minmax.svg":"fa7e3a08c6e493e65374cc13823190caf064cb9a53e806ab54008b8cfadf8992","/index.html":"bec60f7bcd9584eccc99013ca98af9fd5a385914fcc98d7499b5ea757d6b1830","/favicon.svg":"97069c54fc08762fd5c2f8a27955025076a8f77cf9ca817ee118c97fcfad9eda","/min_max_inv.js":"d7e298e2b83570acaee3ea88b6f4407d05795c0f14da6a8377748f8d21fcc842"}}
+[debug] [2026-11-14T07:45:45.630Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/min-max-inventory-e3bc4/sites/bostonwyatt-minmax/versions/5a317cc8c8edcbdd:populateFiles 200
+[debug] [2026-11-14T07:45:45.633Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/min-max-inventory-e3bc4/sites/bostonwyatt-minmax/versions/5a317cc8c8edcbdd:populateFiles {"uploadRequiredHashes":["d7e298e2b83570acaee3ea88b6f4407d05795c0f14da6a8377748f8d21fcc842"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/bostonwyatt-minmax/versions/5a317cc8c8edcbdd/files"}
+[debug] [2026-11-14T07:45:45.640Z] Checked if tokens are valid: true, expires at: 1794645136174
+[debug] [2026-11-14T07:45:45.641Z] Checked if tokens are valid: true, expires at: 1794645136174
+[debug] [2026-11-14T07:45:45.644Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/bostonwyatt-minmax/versions/5a317cc8c8edcbdd/files/d7e298e2b83570acaee3ea88b6f4407d05795c0f14da6a8377748f8d21fcc842 [none]
+[debug] [2026-11-14T07:45:45.646Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/bostonwyatt-minmax/versions/5a317cc8c8edcbdd/files/d7e298e2b83570acaee3ea88b6f4407d05795c0f14da6a8377748f8d21fcc842 [stream]
+[debug] [2026-11-14T07:45:45.668Z] [hosting][populate queue][FINAL] {"max":1781,"min":1781,"avg":1781,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1805}
+[debug] [2026-11-14T07:45:45.670Z] [hosting] uploads queued: 1
+[info] i  hosting: uploading new files [0/1] (0%) 
+[debug] [2026-11-14T07:45:47.082Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/bostonwyatt-minmax/versions/5a317cc8c8edcbdd/files/d7e298e2b83570acaee3ea88b6f4407d05795c0f14da6a8377748f8d21fcc842 200
+[debug] [2026-11-14T07:45:47.092Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/bostonwyatt-minmax/versions/5a317cc8c8edcbdd/files/d7e298e2b83570acaee3ea88b6f4407d05795c0f14da6a8377748f8d21fcc842 [stream]
+[debug] [2026-11-14T07:45:47.107Z] [hosting][upload queue][FINAL] {"max":1471,"min":1471,"avg":1471,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1471}
+[info] i  hosting: upload complete 
+[info] +  hosting[bostonwyatt-minmax]: file upload complete 
+[debug] [2026-11-14T07:45:47.127Z] [hosting] deploy completed after 3457ms
+[debug] [2026-11-14T07:45:47.130Z] [
+  {
+    "config": {
+      "target": "personal",
+      "public": "public",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "cleanUrls": true,
+      "site": "bostonwyatt-minmax"
+    },
+    "version": "projects/min-max-inventory-e3bc4/sites/bostonwyatt-minmax/versions/5a317cc8c8edcbdd"
+  }
+]
+[info] i  hosting[bostonwyatt-minmax]: finalizing version... 
+[debug] [2026-11-14T07:45:47.178Z] Checked if tokens are valid: true, expires at: 1794645136174
+[debug] [2026-11-14T07:45:47.194Z] Checked if tokens are valid: true, expires at: 1794645136174
+[debug] [2026-11-14T07:45:47.226Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/min-max-inventory-e3bc4/sites/bostonwyatt-minmax/versions/5a317cc8c8edcbdd updateMask=status%2Cconfig
+[debug] [2026-11-14T07:45:47.237Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/min-max-inventory-e3bc4/sites/bostonwyatt-minmax/versions/5a317cc8c8edcbdd {"status":"FINALIZED","config":{"cleanUrls":true}}
+[debug] [2026-11-14T07:45:47.598Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/min-max-inventory-e3bc4/sites/bostonwyatt-minmax/versions/5a317cc8c8edcbdd 200
+[debug] [2026-11-14T07:45:47.611Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/min-max-inventory-e3bc4/sites/bostonwyatt-minmax/versions/5a317cc8c8edcbdd {"name":"projects/min-max-inventory-e3bc4/sites/bostonwyatt-minmax/versions/5a317cc8c8edcbdd","status":"FINALIZED","config":{"cleanUrls":true},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2026-11-14T07:45:43.694295Z","createUser":{"email":"bostonwyatt1@gmail.com"},"finalizeTime":"2026-11-14T07:45:47.927194Z","finalizeUser":{"email":"bostonwyatt1@gmail.com"}}
+[debug] [2026-11-14T07:45:47.620Z] [hosting] finalized version for bostonwyatt-minmax:[object Object]
+[info] +  hosting[bostonwyatt-minmax]: version finalized 
+[info] i  hosting[bostonwyatt-minmax]: releasing new version... 
+[debug] [2026-11-14T07:45:47.675Z] Checked if tokens are valid: true, expires at: 1794645136174
+[debug] [2026-11-14T07:45:47.685Z] Checked if tokens are valid: true, expires at: 1794645136174
+[debug] [2026-11-14T07:45:47.689Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/min-max-inventory-e3bc4/sites/bostonwyatt-minmax/channels/live/releases versionName=projects%2Fmin-max-inventory-e3bc4%2Fsites%2Fbostonwyatt-minmax%2Fversions%2F5a317cc8c8edcbdd
+[debug] [2026-11-14T07:45:47.696Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/min-max-inventory-e3bc4/sites/bostonwyatt-minmax/channels/live/releases {}
+[debug] [2026-11-14T07:45:49.317Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/min-max-inventory-e3bc4/sites/bostonwyatt-minmax/channels/live/releases 200
